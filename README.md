@@ -1,6 +1,6 @@
-goskeletor
+Skeletor
 ==========
-Tool used to scaffold a Goweb project directory. 
+Go tool used to scaffold a go web static server and bootstrap css assets. 
 
 [Documentation online](http://godoc.org/github.com/agaviria/skeletor)
 
