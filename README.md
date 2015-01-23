@@ -10,6 +10,13 @@ Go tool used to scaffold a go web static server and skeleton css
 
 	go get github.com/agaviria/skeletor
 
+
+## Build & Server
+Provided you have setup your $GOPATH correctly.
+
+    go build && /.static
+
+
 ## License
 
 The source files are distributed under the [GNU General Public License, version 3 or later](http://www.gnu.org/licenses/gpl.html),
