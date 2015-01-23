@@ -1,12 +1,21 @@
 Skeletor
 ==========
-Go tool used to scaffold a go web static server and bootstrap css assets. 
+Go tool used to scaffold a go web static server and skeleton css 
+
+[GetSkeleton](http://getskeleton.com) 
 
 [Documentation online](http://godoc.org/github.com/agaviria/skeletor)
 
 ## Installation
 
 	go get github.com/agaviria/skeletor
+
+
+## Build & Server
+Provided you have setup your $GOPATH correctly.
+
+    go build && /.static
+
 
 ## License
 

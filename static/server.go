@@ -9,8 +9,8 @@ import (
 	"time"
 )
 
-const STATIC_URL string = "/static/"
-const STATIC_ROOT string = "assets/"
+const LOCAL_URL string = "/static/"
+const LOCAL_ROOT string = "assets/"
 
 type Context struct {
 	Title  string
@@ -28,7 +28,7 @@ func About(w http.ResponseWriter, req *http.Request) {
 }
 
 func render(w http.ResponseWriter, tmpl string, context Context) {
-	context.Static = STATIC_URL
+	context.Static = LOCAL_URL
 	tmpl_list := []string{"templates/base.html",
 		fmt.Sprintf("templates/%s.html", tmpl)}
 	t, err := template.ParseFiles(tmpl_list...)
@@ -42,9 +42,9 @@ func render(w http.ResponseWriter, tmpl string, context Context) {
 }
 
 func StaticHandler(w http.ResponseWriter, req *http.Request) {
-	static_file := req.URL.Path[len(STATIC_URL):]
+	static_file := req.URL.Path[len(LOCAL_URL):]
 	if len(static_file) != 0 {
-		f, err := http.Dir(STATIC_ROOT).Open(static_file)
+		f, err := http.Dir(LOCAL_ROOT).Open(static_file)
 		if err == nil {
 			content := io.ReadSeeker(f)
 			http.ServeContent(w, req, static_file, time.Now(), content)
@@ -55,9 +55,10 @@ func StaticHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
+	log.Println("starting server on http://localhost:8000/")
 	http.HandleFunc("/", Home)
 	http.HandleFunc("/about/", About)
-	http.HandleFunc(STATIC_URL, StaticHandler)
+	http.HandleFunc(LOCAL_URL, StaticHandler)
 	err := http.ListenAndServe(":8000", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
