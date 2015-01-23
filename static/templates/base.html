@@ -2,23 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Golang WebApp</title>
-    <link rel="stylesheet" href="{{ .Static }}css/bootstrap.min.css" type="text/css">
-    <link rel="shortcut icon" href="{{ .Static }}img/favicon.ico">
+    <title>App</title>
+    <link rel="stylesheet" href="{{ .Static }}css/skeleton.css" type="text/css">
+    <link rel="stylesheet" href="{{ .Static }}css/normalize.css" type="text/css">
+    <link rel="icon" href="{{ .Static }}img/favicon.png" type="images/png">
   </head>
   <body>
-    <nav class="navbar navbar-default" role="navigation">
       <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Golang WebApp</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/about/">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+          <div class="row">
+                <div class="one-half column" style="margin-top: 25%">
+                    <h4>Test Page</h4>
+                    <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+                </div>
+          </div>
+    </div>
     <div class="container">
       {{ template "content" . }}
     </div>
